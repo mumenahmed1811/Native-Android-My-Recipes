@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mealFragment">
+    <fragment
+        android:id="@+id/cocktailFragment"
+        android:name="com.example.myrecipes.fragments.CocktailFragment"
+        tools:layout="@layout/cocktail_fragment_layout" >
+        <action
+            android:id="@+id/action_cocktailFragment_to_intoCocktailFragment"
+            app:destination="@id/intoCocktailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/intoCocktailFragment"
+        android:name="com.example.myrecipes.fragments.IntoCocktailFragment"
+        android:label="{cocktailName}"
+        tools:layout="@layout/into_cocktail_fragment_layout"
+        >
+        <argument
+            android:name="cocktailData"
+            app:argType="com.example.myrecipes.data.Cocktail" />
+        <argument
+            android:name="cocktailName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealFragment"
+        android:name="com.example.myrecipes.fragments.MealFragment"
+        tools:layout="@layout/meals_fragment_layout" >
+        <action
+            android:id="@+id/action_mealFragment_to_intoMealFragment"
+            app:destination="@id/intoMealFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/intoMealFragment"
+        android:name="com.example.myrecipes.fragments.IntoMealFragment"
+        android:label="{label}"
+        tools:layout="@layout/into_meal_fragment_layout" >
+        <argument
+            android:name="mealData"
+            app:argType="com.example.myrecipes.data.MealX" />
+        <argument
+            android:name="label"
+            app:argType="string" />
+        />
+    </fragment>
+
+</navigation>
